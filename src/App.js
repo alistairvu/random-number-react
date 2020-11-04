@@ -3,8 +3,6 @@ import Display from "./Display";
 
 const numApi =
   "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain";
-const prizeApi =
-  "https://www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +11,7 @@ class App extends React.Component {
       loading: false,
       answer: 0,
       guess: 0,
-      prize: 0,
+      prize: 11000,
       status: "Guess a number from 1 to 100!",
       guessed: false,
       disabled: false,
@@ -26,13 +24,10 @@ class App extends React.Component {
   async componentDidMount() {
     this.setState({ loading: true });
     const numResponse = await fetch(numApi);
-    const prizeResponse = await fetch(prizeApi);
     const numText = await numResponse.text();
-    const prizeTest = await prizeResponse.text();
     this.setState({
       loading: false,
       answer: parseInt(numText),
-      prize: parseInt(prizeTest) * 1000,
     });
   }
 
@@ -45,8 +40,8 @@ class App extends React.Component {
     event.preventDefault();
     this.setState((state) => ({
       turns: state.turns - 1,
+      prize: state.prize - 1000,
     }));
-
     if (this.state.turns === 1 && this.state.guess !== this.state.answer) {
       this.setState({
         status: "Game over",
