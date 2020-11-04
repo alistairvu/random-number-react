@@ -1,0 +1,23 @@
+body {
+  margin-top: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
+}
+
+/* input formatting */
+input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

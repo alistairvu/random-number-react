@@ -17,7 +17,7 @@ class App extends React.Component {
       status: "Guess a number from 1 to 100!",
       guessed: false,
       disabled: false,
-      turns: 5,
+      turns: 8,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
